@@ -27,10 +27,15 @@ $jsonData = json_decode($result);
 
 //print_r($jsonData->trackData);
 //Get from cURL JSON -> trackData -> name
-$songName = $jsonData->trackData->name;
 
-//Return the Song's name
-echo ($songName);
+$songName = $jsonData->trackData->name;
+$artist = $jsonData->trackData->artist;
+$uniqueProfanityCount = $jsonData->explicitData->uniqueProfanityCount;
+$profanities = $jsonData->explicitData->profanities;
+$occurences = $jsonData->explicitData->occurences;
+
+//$songName = $jsonData->trackData->name;
+
 
 
 ?>
