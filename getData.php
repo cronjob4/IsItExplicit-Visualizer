@@ -3,7 +3,7 @@
 
 include 'key.php';
 
-$searchTerm = "adele hello";
+$searchTerm = "HUMBLE";
 
 // API Call URL
 $baseURL = ("https://isitexplic.it/api?apikey=" . $apiKey . "&search=" . $searchTerm);
