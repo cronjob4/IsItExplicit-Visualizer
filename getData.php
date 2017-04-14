@@ -32,7 +32,7 @@ $songName = $jsonData->trackData->name;
 $artist = $jsonData->trackData->artist;
 $uniqueProfanityCount = $jsonData->explicitData->uniqueProfanityCount;
 $profanities = $jsonData->explicitData->profanities;
-$occurences = $jsonData->explicitData->occurences;
+$occurrences = $jsonData->explicitData->occurrences;
 
 //$songName = $jsonData->trackData->name;
 

@@ -70,11 +70,11 @@ var myChart = new Chart(ctx, {
     data: {
     datasets: [{
         data: [
-            11,
-            16,
-            7,
-            3,
-            14
+            <?php echo $occurrences[0]; ?>,
+            <?php echo $occurrences[1]; ?>,
+            <?php echo $occurrences[2]; ?>,
+            <?php echo $occurrences[3]; ?>,
+            <?php echo $occurrences[4]; ?>
         ],
         backgroundColor: [
             "#FF6384",
@@ -86,11 +86,11 @@ var myChart = new Chart(ctx, {
         label: 'My dataset' // for legend
     }],
     labels: [
-        "Red",
-        "Green",
-        "Yellow",
-        "Grey",
-        "Blue"
+        "<?php echo $profanities[0]; ?>",
+        "<?php echo $profanities[1]; ?>",
+        "<?php echo $profanities[2]; ?>",
+        "<?php echo $profanities[3]; ?>",
+        "<?php echo $profanities[4]; ?>"
     ]
 },
     type: 'polarArea',
