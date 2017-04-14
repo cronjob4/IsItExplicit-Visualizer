@@ -50,7 +50,7 @@ article {
 <header>
     
     
-    <h1>Song Name: <?php echo($songName); ?></h1>
+    <h1><?php echo($songName); ?> by <?php echo($artist); ?></h1>
     
 <script src="Chart.js/Chart.js"></script>
 
@@ -69,14 +69,18 @@ var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
     data: {
     datasets: [{
-        data: [
-            <?php echo $occurrences[0]; ?>,
-            <?php echo $occurrences[1]; ?>,
-            <?php echo $occurrences[2]; ?>,
-            <?php echo $occurrences[3]; ?>,
-            <?php echo $occurrences[4]; ?>
-        ],
+        data: [<?php echo $occurenceList; ?>],
         backgroundColor: [
+            "#FF6384",
+            "#4BC0C0",
+            "#FFCE56",
+            "#E7E9ED",
+            "#36A2EB",
+            "#FF6384",
+            "#4BC0C0",
+            "#FFCE56",
+            "#E7E9ED",
+            "#36A2EB",
             "#FF6384",
             "#4BC0C0",
             "#FFCE56",
@@ -85,13 +89,7 @@ var myChart = new Chart(ctx, {
         ],
         label: 'My dataset' // for legend
     }],
-    labels: [
-        "<?php echo $profanities[0]; ?>",
-        "<?php echo $profanities[1]; ?>",
-        "<?php echo $profanities[2]; ?>",
-        "<?php echo $profanities[3]; ?>",
-        "<?php echo $profanities[4]; ?>"
-    ]
+    labels: [<?php echo $profanityList; ?>]
 },
     type: 'polarArea',
     options: {
