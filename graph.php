@@ -190,7 +190,7 @@ body {
 </header>
 
 
-    <canvas id="profanityChart" width="100%" height="50"></canvas>
+    <canvas id="profanityChart" width="100%" height="100%"></canvas>
 <script>
 
 

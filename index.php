@@ -172,7 +172,7 @@ body {
                                     <input size="30" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form-control required" name="search" id="search" placeholder="Search any song to visualize!">
 
                                 </div>
-
+                                
                                 <div class="form-group submit-wrap">
 
                                     <!-- <input type="hidden" name="small-form"/> -->
@@ -180,7 +180,7 @@ body {
 
                                 </div>
                                 <br>
-                                
+                                <input type="radio" name="type" value="polarArea" style="margin-right: 10px;">Polar Area Graph <br> <input type="radio" name="type" value="bar" style="margin-right: 10px;">Bar Graph
 
                             </form>
                         </div>
