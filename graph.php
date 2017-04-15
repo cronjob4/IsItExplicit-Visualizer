@@ -238,6 +238,7 @@ var profanityChart = new Chart(ctx, {
     type: chartType,
     options: {
         responsive: true,
+        maintainAspectRatio: true,
         labelColor: '#ffeb3b',
         callbacks: {
             labelColor: '#ffeb3b'
