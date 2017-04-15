@@ -33,7 +33,13 @@
 -->
 <?php
 
+//$showProfanities = true;
+
 $searchTerm = $_GET["search"];
+
+$showProfanities = $_GET["showProfanities"];
+
+
 
 include 'getData.php';
 
@@ -196,6 +202,8 @@ body {
 
 var chartType = '<?php echo $chartType; ?>';
 var chartData = [<?php echo $occurenceList; ?>];
+
+
 var chartLabels = [<?php echo $profanityList; ?>];
 
 //var chartLabels = ["a","b","c"];
@@ -208,7 +216,7 @@ var profanityChart = new Chart(ctx, {
     callbacks: [{labelColor: '#ffeb3b'}],
     datasets: [{
         data: chartData,
-        borderColor: ["#000000"],
+        //borderColor: ["#000000"],
         labelColor: '#ffeb3b',
         backgroundColor: [
             "#e53935",

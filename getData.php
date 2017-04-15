@@ -32,6 +32,8 @@ $songName = $jsonData->trackData->name;
 $artist = $jsonData->trackData->artist;
 $uniqueProfanityCount = $jsonData->explicitData->uniqueProfanityCount;
 $profanities = $jsonData->explicitData->profanities;
+$profanitiesHidden = $jsonData->explicitData->profanitiesHidden;
+
 $occurrences = $jsonData->explicitData->occurrences;
 
 
@@ -49,24 +51,39 @@ function formatOccurrences($occurrences){
     
 }
 
+
 function formatProfanities($profanities){
+    
     $formatted = "";
     
    // echo("");
     for ($i = 0; $i < sizeof($profanities); $i++) {
         
             $formatted .= ('"' . $profanities[$i] . '", ');
+            
                 
     }
     return $formatted;
     
 }
 
+
+
 $occurenceList = formatOccurrences($occurrences);
-$profanityList = formatProfanities($profanities);
 
-//$songName = $jsonData->trackData->name;
 
-//echo $profanityList;
+
+    
+if ($showProfanities == true){
+
+    $profanityList = formatProfanities($profanities);
+    
+} else {
+
+    $profanityList = formatProfanities($profanitiesHidden);
+    
+    
+}
+
 
 ?>
