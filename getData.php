@@ -1,9 +1,9 @@
 <?php
 
+//include 'index.php';
 
 include 'key.php';
 
-$searchTerm = "HUMBLE";
 
 // API Call URL
 $baseURL = ("https://isitexplic.it/api?apikey=" . $apiKey . "&search=" . $searchTerm);

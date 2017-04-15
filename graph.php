@@ -27,11 +27,26 @@
                      |      (ColeFortson.com)      |
                      +-----------------------------+                   
                                  
-                              [Index]
+                              [Graph.php]
 
                              
 -->
-   
+<?php
+
+$searchTerm = $_GET["search"];
+
+include 'getData.php';
+
+
+$chartType = 'polarArea';
+
+if ($_GET["type"] != null && $_GET["type"] != ''){
+$chartType = $_GET["type"];
+}
+
+//echo "graphing stuff";
+
+?>
    
 <!doctype html>
 <html lang="en">
@@ -111,8 +126,7 @@ body {
 </head>
 
 <body id="landing-page" class="landing-page" >
-<div class="gradientBG">
-
+    
     <!-- Preloader -->
     <div class="preloader-mask">
        <div class="cssload-container">
@@ -125,8 +139,8 @@ body {
             <div class="container">
                 <div class="navigation-brand">
                     <div class="brand-logo">
-                        <a href="" class="logo"></a>
-                        <a href="" class="logo logo-alt"></a>
+                        <a href="/" class="logo"></a>
+                        <a href="/" class="logo logo-alt"></a>
                     </div>
                 </div>
                 <button class="navigation-toggle">
@@ -136,7 +150,7 @@ body {
                 </button>
                 <div class="navigation-navbar collapsed">
                     <ul class="navigation-bar navigation-bar-left">
-                        <li><a href="#" style="margin-left: 125%;">Search</a>
+                        <li><a href="#" style="padding-left: 90px;">Search: <?php echo ($songName); ?></a>
                         </li>
                         
 
@@ -153,37 +167,101 @@ body {
 
 
     <div id="hero" class="static-header window-height light-text hero-section clickthrough-version clearfix">
-       <div class="overlay"></div>
+        <div class="overlay" style="background: black;"></div>
        <div id="container">
-            <div class="heading-block align-center centered-block" style="padding: 15% 0;">
+            <div class="heading-block align-center centered-block">
                 <div class="container">
                     
-<div style="position:fixed; right:0;left:0;">
-<span class="element"></span>
+                    
+
+<script src="Chart.js/Chart.js"></script>
 
 
-            <span id="typed" style="white-space:pre;"></span>
-        </div>
+
+
+</style>
+<header>
+    
+    
+    <h1><?php echo($songName); ?> by <?php echo($artist); ?></h1>
+    
+<!-- <script src="Chart.js/Chart.js"></script>
+ -->
+</header>
+
+
+    <canvas id="profanityChart" width="100%" height="50"></canvas>
+<script>
+
+
+var chartType = '<?php echo $chartType; ?>';
+var chartData = [<?php echo $occurenceList; ?>];
+var chartLabels = [<?php echo $profanityList; ?>];
+
+//var chartLabels = ["a","b","c"];
+//var chartData = [1,2,3];
+var ctx = document.getElementById("profanityChart");
+
+
+var profanityChart = new Chart(ctx, {
+    data: {
+    callbacks: [{labelColor: '#ffeb3b'}],
+    datasets: [{
+        data: chartData,
+        borderColor: ["#000000"],
+        labelColor: '#ffeb3b',
+        backgroundColor: [
+            "#e53935",
+            "#ff5722",
+            "#ff9800",
+            "#ffc107",
+            "#ffeb3b",
+            "#cddc39",
+            "#8bc34a",
+            "#4caf50",
+            "#009688",
+            "#00bcd4",
+            "#03a9f4",
+            "#2196f3",
+            "#3f51b5",
+            "#673ab7",
+            "#9c27b0",
+            "#e91e63"
             
-        <div class="row" style="position:relative; top:0; bottom: 0; left: 0; right: 0; margin: auto;">
-                            <form class="form form-inline form-register form-register-small" action="graph" method="get">
+        ],
+        
 
-                                <div class="form-group">
-                                    <input size="30" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form-control required" name="search" id="search" placeholder="Search any song to visualize!">
+        label: 'Times Said' // for legend
+    }],
+    labels: chartLabels
+},
+    type: chartType,
+    options: {
+        responsive: true,
+        labelColor: '#ffeb3b',
+        callbacks: {
+            labelColor: '#ffeb3b'
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
 
-                                </div>
 
-                                <div class="form-group submit-wrap">
+</script>
+    
 
-                                    <!-- <input type="hidden" name="small-form"/> -->
-                                    <button type="submit" class="btn btn-solid">Search</button>
 
-                                </div>
-                                <br>
-                                
 
-                            </form>
-                        </div>
+
+
+            
+                    
                     </div>
                 </div>
                 <center>
@@ -204,8 +282,7 @@ body {
             </center>
 
              </div>
-        </div>
-        
+             
         <div class="back-to-top"><i class="fa fa-angle-up fa-3x"></i>
      </div> 
   

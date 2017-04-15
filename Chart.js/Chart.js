@@ -231,7 +231,6 @@ var reverseNames = {};
 for (var name in colorNames) {
    reverseNames[colorNames[name]] = name;
 }
-
 },{"6":6}],3:[function(require,module,exports){
 /* MIT license */
 var convert = require(5);
@@ -716,7 +715,6 @@ if (typeof window !== 'undefined') {
 }
 
 module.exports = Color;
-
 },{"2":2,"5":5}],4:[function(require,module,exports){
 /* MIT license */
 
@@ -2064,7 +2062,6 @@ module.exports = function(Chart) {
 				var base = yScale.getBaseValue();
 				var sumPos = base,
 					sumNeg = base;
-
 				for (var i = 0; i < datasetIndex; i++) {
 					var ds = me.chart.data.datasets[i];
 					var dsMeta = me.chart.getDatasetMeta(i);
@@ -2341,7 +2338,6 @@ module.exports = function(Chart) {
 				var base = xScale.getBaseValue();
 				var sumPos = base,
 					sumNeg = base;
-
 				for (var i = 0; i < datasetIndex; i++) {
 					var ds = me.chart.data.datasets[i];
 					var dsMeta = me.chart.getDatasetMeta(i);
@@ -6293,8 +6289,8 @@ module.exports = function() {
 				animationDuration: 400
 			},
 			onClick: null,
-			defaultColor: 'rgba(0,0,0,0.1)',
-			defaultFontColor: '#666',
+			defaultColor: 'rgba(255,255,255,0.1)',
+			defaultFontColor: '#FFFFFF',
 			defaultFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
 			defaultFontSize: 12,
 			defaultFontStyle: 'normal',
@@ -7576,14 +7572,14 @@ module.exports = function(Chart) {
 		// grid line settings
 		gridLines: {
 			display: true,
-			color: 'rgba(0, 0, 0, 0.1)',
+			color: 'rgba(255, 255, 255, 0.15)',
 			lineWidth: 1,
 			drawBorder: true,
 			drawOnChartArea: true,
 			drawTicks: true,
 			tickMarkLength: 10,
 			zeroLineWidth: 1,
-			zeroLineColor: 'rgba(0,0,0,0.25)',
+			zeroLineColor: 'rgba(255,255,255,0.25)',
 			offsetGridLines: false,
 			borderDash: [],
 			borderDashOffset: 0.0
@@ -11320,7 +11316,7 @@ module.exports = function(Chart) {
 			showLabelBackdrop: true,
 
 			// String - The colour of the label backdrop
-			backdropColor: 'rgba(255,255,255,0.75)',
+			backdropColor: 'rgba(0,0,0,0.75)',
 
 			// Number - The backdrop padding above & below the label in pixels
 			backdropPaddingY: 2,
