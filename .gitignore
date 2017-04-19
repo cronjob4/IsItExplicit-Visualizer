@@ -5,6 +5,9 @@ key.php
 # Libraries #
 ###################
 Chart.js
+Chart.bundle.js
+Chart.bundle.min.js
+Chart.min.js
 
 # Compiled source #
 ###################
