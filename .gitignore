@@ -2,6 +2,10 @@
 ###################
 key.php
 
+# Libraries #
+###################
+Chart.js
+
 # Compiled source #
 ###################
 *.com
@@ -10,6 +14,7 @@ key.php
 *.exe
 *.o
 *.so
+
 
 # Packages #
 ############
