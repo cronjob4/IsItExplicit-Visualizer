@@ -1,13 +1,14 @@
 <?php
 
-//include 'index.php';
-
 include 'key.php';
 
+$showProfanities = $_GET["showProfanities"];
 
 // API Call URL
 $baseURL = ("https://isitexplic.it/api?apikey=" . $apiKey . "&search=" . $searchTerm);
 
+
+// CURL FUNCTION- DON'T ASK... IDK EITHER :/
 
 //  Initiate curl
 $ch = curl_init();
@@ -28,58 +29,63 @@ $jsonData = json_decode($result);
 //print_r($jsonData->trackData);
 //Get from cURL JSON -> trackData -> name
 
-$songName = $jsonData->trackData->name;
-$artist = $jsonData->trackData->artist;
+
+// SET ALL VARIABLES FROM CURL
+
+$songName             = $jsonData->trackData->name;
+$artist               = $jsonData->trackData->artist;
 $uniqueProfanityCount = $jsonData->explicitData->uniqueProfanityCount;
-$profanities = $jsonData->explicitData->profanities;
-$profanitiesHidden = $jsonData->explicitData->profanitiesHidden;
+$profanities          = $jsonData->explicitData->profanities;
+$profanitiesHidden    = $jsonData->explicitData->profanitiesHidden;
 
 $occurrences = $jsonData->explicitData->occurrences;
 
 
+// FORMAT OCCURENCES INTO A GRAPH-READABLE STRING
 
-function formatOccurrences($occurrences){
+function formatOccurrences($occurrences)
+{
     $formatted = "";
     
-   // echo("");
+    // echo("");
     for ($i = 0; $i < sizeof($occurrences); $i++) {
         
-            $formatted .= ("" . $occurrences[$i] . ", ");
-                
+        $formatted .= ("" . $occurrences[$i] . ", ");
+        
     }
     return $formatted;
     
 }
 
+// FORMAT PROFANITIES INTO A GRAPH-READABLE STRING
 
-function formatProfanities($profanities){
+function formatProfanities($profanities)
+{
     
     $formatted = "";
     
-   // echo("");
+    // echo("");
     for ($i = 0; $i < sizeof($profanities); $i++) {
         
-            $formatted .= ('"' . $profanities[$i] . '", ');
-            
-                
+        $formatted .= ('"' . $profanities[$i] . '", ');
+        
+        
     }
     return $formatted;
     
 }
 
-
+// SHOW OR HIDE PROFANITIES
 
 $occurenceList = formatOccurrences($occurrences);
 
 
-
+if ($showProfanities == "on") {
     
-if ($showProfanities == true){
-
     $profanityList = formatProfanities($profanities);
     
 } else {
-
+    
     $profanityList = formatProfanities($profanitiesHidden);
     
     
