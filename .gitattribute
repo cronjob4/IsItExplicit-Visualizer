@@ -1,2 +1,2 @@
 assets/* linguist-vendored
-*.rb linguist-language=PHP
+*.css linguist-language=PHP
