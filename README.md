@@ -1,4 +1,4 @@
-# IsItExplic.it Visualizer
+![Logo](assets/img/GitLogo.png)
 
 Using [IsItExplic.it](https://isitexplic.it) API to graph show profanities from songs
 
